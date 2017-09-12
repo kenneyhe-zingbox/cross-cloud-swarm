@@ -4,11 +4,11 @@ variable "ssh_user" {
 }
 
 variable "public_key_path" {
-  default = "/Users/spencer/.ssh/id_rsa.pub"
+  default = "~/.ssh/id_rsa.pub"
 }
 
 variable "private_key_path" {
-  default = "/Users/spencer/.ssh/id_rsa"
+  default = "~/.ssh/id_rsa"
 }
 
 ##AWS Specific Vars
@@ -34,7 +34,7 @@ variable "gce_worker_count" {
 }
 
 variable "gce_creds_path" {
-  default = "/Users/spencer/gce-creds.json"
+  default = "~/gce-creds.json"
 }
 
 variable "gce_project" {
