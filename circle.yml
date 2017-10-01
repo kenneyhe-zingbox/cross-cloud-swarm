@@ -1,0 +1,47 @@
+machine:
+
+dependencies:
+  override:
+    # for debugging firefox issues manually 
+    # 1) uncomment below 
+    # 2) run something like ssh -p 64686 ubuntu@52.14.38.229 -L 5902:localhost:5901
+    # 3) remove ~/.vnc/xstartup that might be causing grey screen
+    # - mkdir -p ~/.vnc
+    # - touch /home/ubuntu/.Xauthority
+    # - echo "firefox &" >> ~/.vnc/xstartup 
+    # - vnc4server -geometry 1280x1024 -depth 24
+    # if need to syncup with upstream: https://gist.github.com/Chaser324/ce0505fbed06b947d962
+    # construct terraform.tfvars below
+    # - openssl aes-256-cbc -d -in config.xml.encrypted -k "${KEY}" >> config.xml
+    - cp terraform.tfvars.template terraform.tfvars
+
+  post:
+
+test:
+  override:
+    # checking parallel runs https://discuss.circleci.com/t/parallel-runs-status/15876/2 and test file for highest timeout
+    # https://github.com/dlanger/nose-parallel
+    #- nosetests -v  --processes=4 --process-timeout=120 --with-coverage --cover-package pkg --cover-package test --cover-package . test/*.py:
+          parallel: false
+
+  post:
+    - rm -f terraform.tfvars 
+
+deployment:
+  production:
+    branch: production
+    commands:
+      - echo production test
+      
+  staging:
+    branch: master
+    commands:
+      - echo integration with docker test
+
+experimental:
+  # status on chatroom https://circleci.com/docs/1.0/configuration/#branches
+  notify:
+    branches:
+      ignore:
+        - /experiment.*/
+        - sandbox
