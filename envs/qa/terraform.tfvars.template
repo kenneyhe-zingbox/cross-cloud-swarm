@@ -1,0 +1,9 @@
+# -------------------------------------------------
+#      Example terraform.tfvars file based on 0.7.7
+#      Note: this is only for testing / example purposes
+#            this file should NEVER really be checked into
+#            version control
+# -------------------------------------------------
+region = "ENTER_REGION"
+access_key = "ENTER_AWS_ACCESS_KEY_ID"
+secret_key = "ENTER_AWS_SECRET_KEY"
