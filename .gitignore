@@ -2,3 +2,4 @@
 swarm-inventory
 *.retry
 *.backup
+terraform.tfvars
