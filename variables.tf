@@ -27,24 +27,3 @@ variable "aws_instance_size" {
 variable "aws_region" {
   default = "us-west-2"
 }
-
-##GCE Specific Vars
-variable "gce_worker_count" {
-  default = 1
-}
-
-variable "gce_creds_path" {
-  default = "~/gce-creds.json"
-}
-
-variable "gce_project" {
-  default = "flotilla-test"
-}
-
-variable "gce_region" {
-  default = "us-central1"
-}
-
-variable "gce_instance_size" {
-  default = "n1-standard-1"
-}
