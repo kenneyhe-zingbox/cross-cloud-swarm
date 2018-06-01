@@ -1,6 +1,6 @@
 ##General vars
 variable "ssh_user" {
-  default = "ubuntu"
+  default = "automation"
 }
 
 variable "public_key_path" {
@@ -17,7 +17,7 @@ variable "aws_worker_count" {
 }
 
 variable "aws_key_name" {
-  default = "spencer-key"
+  default = "ops"
 }
 
 variable "aws_instance_size" {
