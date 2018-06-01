@@ -16,8 +16,4 @@ resource "null_resource" "ansible-provision" {
   provisioner "local-exec" {
     command = "echo \"${join("\n",formatlist("%s ansible_ssh_user=%s", aws_instance.aws-swarm-members.*.public_ip, var.ssh_user))}\" >> swarm-inventory"
   }
-
-  provisioner "local-exec" {
-    command = "echo \"${join("\n",formatlist("%s ansible_ssh_user=%s", google_compute_instance.gce-swarm-members.*.network_interface.0.access_config.0.assigned_nat_ip, var.ssh_user))}\" >> swarm-inventory"
-  }
 }
